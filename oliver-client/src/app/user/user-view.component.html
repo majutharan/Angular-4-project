@@ -1,0 +1,67 @@
+<div class="modal-body">
+  <div class="row">
+    <div class="col-sm-8 pull-right" id="view-container">
+      <form name="form" (ngSubmit)="f.form.valid && register(); f.form.reset()" #f="ngForm" novalidate
+            style="background-color: white">
+        <div class="card-block">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" disabled="disabled" pattern="[a-zA-Z]+" class="form-control" placeholder="Firstrname"
+                   name="firstName"
+                   [(ngModel)]="model.firstName" #firstName="ngModel" required/>
+          </div>
+          <div class="form-group">
+            <label>last Name</label>
+            <input type="text" disabled="disabled" class="form-control" placeholder="Lastname" name="lastName"
+                   [(ngModel)]="model.lastName" #lastName="ngModel" required/>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" disabled="disabled"  class="form-control" placeholder="email" name="email"
+                   [(ngModel)]="model.email" #email="ngModel" required email/>
+            <div *ngIf="email.invalid && (email.dirty || email.touched || f.submitted)"
+                 class="help-block">Email is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Gender</label>
+            <input type="text" disabled="disabled" class="form-control" placeholder="gender" name="gender"
+                   [(ngModel)]="model.gender" #gender="ngModel" required email/>
+            <div *ngIf="gender.invalid && (gender.dirty || gender.touched || f.submitted)"
+                 class="help-block">Gender is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Birth Of Date</label>
+            <input type="date" disabled="disabled" class="form-control" placeholder="" name="bod"
+                   [(ngModel)]="model.bod" #bod="ngModel" required/>
+            <div *ngIf="bod.invalid && (bod.dirty || bod.touched || f.submitted)"
+                 class="help-block">
+              Birth Of Date is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label>User Name</label>
+            <input type="text" disabled="disabled" class="form-control" placeholder="Username" name="username"
+                   [(ngModel)]="model.username" #username="ngModel" required/></div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" disabled="disabled" class="form-control" placeholder="Password" name="password"
+                   [(ngModel)]="model.password" #password="ngModel" required/>
+          </div>
+          <br/>
+        </div>
+
+      </form>
+      <br>
+      <div class="form-inline pull-right">
+        <button  type="button" style="padding-left: 5%" class="btn btn-primary" (click)="backLoc()"><i class="icon-arrow-left-circle"></i>&nbsp; Back
+        </button>
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-success pull-right" (click)="download()">
+          <i class="fa fa-file-pdf-o"></i> &nbsp; Download as PDF
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
